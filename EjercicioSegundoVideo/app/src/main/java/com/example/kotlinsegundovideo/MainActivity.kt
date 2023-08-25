@@ -14,17 +14,20 @@ class MainActivity : AppCompatActivity() {
     enum class DogRace{
         DOBERMAN, CHIHUAHUA, GOLDEN, CANICHE;
     }
+
     private fun enumTest(){
         val myDog: DogRace = DogRace.GOLDEN
         println("Nombre de propiedad: ${myDog.name}")
         println("Ordinal del enum: ${myDog.ordinal}")
     }
+
     private fun classTest(){
         val myClass = MyFirstClass("Jorge")
         val myHeritanceClass = MySecondClass("Roberto")
         myClass.message()
         myHeritanceClass.message()
     }
+    /* EJERCICIO 24/08/23 */
     private fun interfaceTest(){
         val mySecondClass = MySecondClass("XXXX")
         mySecondClass.intVar = "Variable de interfaz"

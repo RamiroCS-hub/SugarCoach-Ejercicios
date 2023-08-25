@@ -6,7 +6,7 @@ class MySecondClass(name: String): MyFirstClass(name), MyFirstInterface {
     }
     //Declarando la características de la interfaz
     override var intVar: String = ""
-        get() = "La variable vale: ${field}" //field guarda el valor de intVar en memoria para poder referenciarla
+        get() = field //field guarda el valor de intVar en memoria para poder referenciarla
         set(value: String) {
             println("Se cambio la variable a ${value}")
             field = value
