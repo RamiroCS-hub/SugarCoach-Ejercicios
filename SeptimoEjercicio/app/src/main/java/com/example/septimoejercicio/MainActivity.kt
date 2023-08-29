@@ -8,14 +8,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val mapOfSoldiers:Map<String, Int> = mapOf(
-            "Sureño bueno" to 1,
+            "Sureño bueno" to 5,
             "Enano" to 2,
             "Goblin" to 3,
             "Orc" to 3
         )
         val soldiers = createSoldiers(mapOfSoldiers)
         println( goodAgainstBad(soldiers) )
-
     }
     private fun createSoldiers(mapOfSoldiers: Map<String,Int>): MutableList<Race>{
         val listOfSoldiers: MutableList<Race> = mutableListOf()

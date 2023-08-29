@@ -7,5 +7,4 @@ class Dwarves(newCant: Int): GoodRace(), Race {
     override val attackPower: Int = 3
 
     override val raceIdent: Boolean = super.raceIdent
-
 }
