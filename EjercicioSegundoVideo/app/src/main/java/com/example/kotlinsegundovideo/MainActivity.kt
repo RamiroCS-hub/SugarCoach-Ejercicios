@@ -10,12 +10,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         //enumTest()
         //classTest()
-        //interfaceTest()
+        interfaceTest()
         //desectClassTest()
         //extensions()
     }
 
-    enum class DogRace{
+    /*enum class DogRace{
         DOBERMAN, CHIHUAHUA, GOLDEN, CANICHE;
     }
 
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val myDog: DogRace = DogRace.GOLDEN
         println("Nombre de propiedad: ${myDog.name}")
         println("Ordinal del enum: ${myDog.ordinal}")
-    }
+    }*/
  /*
     private fun classTest(){
         val myClass = MyFirstClass("Jorge")
@@ -33,15 +33,15 @@ class MainActivity : AppCompatActivity() {
     }
 */
     /* EJERCICIO 24/08/23 */
-    /*
+
     private fun interfaceTest(){
-        val mySecondClass = MySecondClass("XXXX")
+        val mySecondClass = MySecondClass("XXXX", "asd", 12)
         mySecondClass.intVar = "Variable de interfaz"
         println(mySecondClass.intVar)
         //println(mySecondClass.intFun())
         mySecondClass.intVar = "Variable de interfaz modificada"
         println(mySecondClass.intVar)
-    }*/
+    }
 
     /* Desestructuración de clases */
     private fun desectClassTest () {
