@@ -11,31 +11,29 @@
         android:layout_width="167dp"
         android:layout_height="39dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Ingrese el numero de Enanos"
         android:hyphenationFrequency="normal"
         android:inputType="number"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toStartOf="@+id/txtOrc"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintTop_toTopOf="@+id/dwarveName" />
 
     <EditText
         android:id="@+id/txtOrc"
         android:layout_width="143dp"
         android:layout_height="39dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="28dp"
         android:ems="10"
         android:hint="Ingrese numero de Orcos"
         android:inputType="number"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintTop_toTopOf="@+id/dwarveName2" />
 
     <EditText
         android:id="@+id/txtGoodSur"
@@ -70,22 +68,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-        android:layout_marginTop="256dp"
         android:text="Enano"
         app:layout_constraintEnd_toStartOf="@+id/dwarveName2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/dwarveName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="256dp"
-        android:layout_marginEnd="88dp"
+        android:layout_marginEnd="76dp"
         android:text="Orco"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
         android:id="@+id/dwarveName4"
@@ -112,13 +108,12 @@
         android:layout_width="192dp"
         android:layout_height="250dp"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="84dp"
         android:background="@drawable/enano"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -150,9 +145,9 @@
         android:layout_width="192dp"
         android:layout_height="250dp"
         android:layout_marginStart="220dp"
-        android:layout_marginBottom="23dp"
-        android:background="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toTopOf="@+id/txtOrc"
+        android:layout_marginBottom="84dp"
+        android:background="@drawable/orco"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -164,6 +159,20 @@
         android:text="Crear Tropas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.217"
+        app:layout_constraintStart_toStartOf="parent"
+        app:toggleCheckedStateOnClick="false" />
+
+    <Button
+        android:id="@+id/btnRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:onClick="restartGame"
+        android:text="Reiniciar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.742"
         app:layout_constraintStart_toStartOf="parent"
         app:toggleCheckedStateOnClick="false" />
 
@@ -171,11 +180,10 @@
         android:id="@+id/txtResult"
         android:layout_width="235dp"
         android:layout_height="139dp"
-        android:layout_marginTop="316dp"
+        android:layout_marginTop="272dp"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

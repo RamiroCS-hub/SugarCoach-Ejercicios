@@ -34,13 +34,37 @@ class MainActivity : AppCompatActivity() {
             "Goblin" to goblinCant,
             "Orc" to orcCant
         )
-        var result = goodAgainstBad(createSoldiers(mapOfSoldiers))
+        val  result = goodAgainstBad(createSoldiers(mapOfSoldiers))
         println("El resultado fue ${result}")
-        /*var suma = 1+1
-        fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(result)*/
 
-        resultDis?.text = Editable.Factory.getInstance().newEditable(result)
+        when(result){
+            "Gano el mal" -> {
+                resultDis?.setBackgroundColor(Integer.parseUnsignedInt("00000000",16))
+                resultDis?.setTextColor(Integer.parseUnsignedInt("ffff0000",16))
+                resultDis?.text = Editable.Factory.getInstance().newEditable(result)
+            }
+            "Gano el bien" -> {
+                println("Gano el bien sisi")
+                resultDis?.setBackgroundColor(Integer.parseUnsignedInt("00000000",16))
+                resultDis?.setTextColor(Integer.parseUnsignedInt("ff0000ff",16))
+                resultDis?.text = Editable.Factory.getInstance().newEditable(result)
+            }else -> {
+                resultDis?.setTextColor(Integer.parseUnsignedInt("00000000",16))
+                resultDis?.text = Editable.Factory.getInstance().newEditable(result)
+            }
+        }
 
+
+    }
+    fun restartGame(view: View){
+        dwarveCant?.text = changeFromView("")
+        goodSurCant?.text = changeFromView("")
+        goblinCant?.text = changeFromView("")
+        orcCant?.text = changeFromView("")
+        resultDis?.text = changeFromView("")
+    }
+    private fun changeFromView(value:String): Editable{
+        return Editable.Factory.getInstance().newEditable(value)
     }
     private fun createSoldiers(mapOfSoldiers: Map<String,Int>): MutableList<Race>{
         val listOfSoldiers: MutableList<Race> = mutableListOf()
@@ -63,8 +87,8 @@ class MainActivity : AppCompatActivity() {
                     val orc = Orcs(soldier.value)
                     listOfSoldiers.add(orc)
                 }
-                else ->
-                    println("Esa no es una raza permitida")
+                else -> println("Esa no es una raza permitida")
+
             }
         }
 
