@@ -180,9 +180,10 @@
         android:id="@+id/txtResult"
         android:layout_width="235dp"
         android:layout_height="139dp"
-        android:layout_marginTop="272dp"
+        android:layout_marginTop="220dp"
         android:textAlignment="center"
         android:textSize="48sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

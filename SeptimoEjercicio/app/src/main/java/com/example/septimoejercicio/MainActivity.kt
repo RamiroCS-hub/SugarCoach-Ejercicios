@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 resultDis?.text = Editable.Factory.getInstance().newEditable(result)
             }
         }
-
+        resultDis?.visibility = View.VISIBLE
 
     }
     fun restartGame(view: View){
