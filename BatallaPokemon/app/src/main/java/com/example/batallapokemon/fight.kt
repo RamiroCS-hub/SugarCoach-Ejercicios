@@ -19,16 +19,17 @@ class fight : AppCompatActivity() {
         imgAttack = findViewById(R.id.imgAttack)
         imgDefense = findViewById(R.id.imgDefense)
         txtResult = findViewById(R.id.txtResult)
+        println("El first pokemon src es:${firstPokemon?.getSrc()} Y el second src es:${secondPokemon?.getSrc()}")
         when(firstPokemon?.getSrc()){
             "squirtle" -> imgAttack?.setImageResource(R.drawable.squirtle)
             "infernape" -> imgAttack?.setImageResource(R.drawable.infernape)
-            "pikachu" -> imgDefense?.setImageResource(R.drawable.pikachu)
-            "bulbasur" -> imgDefense?.setImageResource(R.drawable.bulbasur)
+            "pikachu" -> imgAttack?.setImageResource(R.drawable.pikachu)
+            "bulbasur" -> imgAttack?.setImageResource(R.drawable.bulbasur)
         }
 
         when(secondPokemon?.getSrc()){
-            "squirtle" -> imgAttack?.setImageResource(R.drawable.squirtle)
-            "infernape" -> imgAttack?.setImageResource(R.drawable.infernape)
+            "squirtle" -> imgDefense?.setImageResource(R.drawable.squirtle)
+            "infernape" -> imgDefense?.setImageResource(R.drawable.infernape)
             "pikachu" -> imgDefense?.setImageResource(R.drawable.pikachu)
             "bulbasur" -> imgDefense?.setImageResource(R.drawable.bulbasur)
         }

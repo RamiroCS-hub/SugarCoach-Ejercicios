@@ -53,12 +53,12 @@ class secondPokemon : AppCompatActivity() {
             }
             R.id.btnBulbasur2 -> {
                 println("Bulbasur")
-                firstPokemon = pokemon("plant",50,10)
+                secondPokemon = pokemon("plant",50,10)
                 changeBackCol(btnBulbasur,btnPikachu,btnInfernape,btnSquirtle)
             }
             R.id.btnPikachu2 -> {
                 println("Pikachu")
-                firstPokemon = pokemon("electric",50,10)
+                secondPokemon = pokemon("electric",50,10)
                 changeBackCol(btnPikachu,btnSquirtle,btnBulbasur,btnInfernape)
             }
         }
