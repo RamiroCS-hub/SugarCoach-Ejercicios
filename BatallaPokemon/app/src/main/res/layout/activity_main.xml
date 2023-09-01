@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="140dp"
+        android:onClick="changeView"
+        android:text="Elegir Pokemon"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnSquirtle"
+        android:layout_width="164dp"
+        android:layout_height="167dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="88dp"
+        android:backgroundTint="@color/white"
+        android:onClick="getFirstPokemon"
+        android:scaleType="fitCenter"
+        android:src="@drawable/squirtle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnBulbasur"
+        android:layout_width="164dp"
+        android:layout_height="167dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/white"
+        android:onClick="getFirstPokemon"
+        android:scaleType="fitCenter"
+        android:src="@drawable/bulbasur"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSquirtle" />
+
+    <ImageButton
+        android:id="@+id/btnPikachu"
+        android:layout_width="164dp"
+        android:layout_height="167dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/white"
+        android:onClick="getFirstPokemon"
+        android:scaleType="fitCenter"
+        android:src="@drawable/pikachu"
+        app:layout_constraintStart_toEndOf="@+id/btnBulbasur"
+        app:layout_constraintTop_toBottomOf="@+id/btnSquirtle" />
+
+    <ImageButton
+        android:id="@+id/btnInfernape"
+        android:layout_width="164dp"
+        android:layout_height="167dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="88dp"
+        android:backgroundTint="@color/design_default_color_background"
+        android:onClick="getFirstPokemon"
+        android:scaleType="fitCenter"
+        android:src="@drawable/infernape"
+        app:layout_constraintStart_toEndOf="@+id/btnSquirtle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="36dp"
+        android:text="Elija el pokemon atacante"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
