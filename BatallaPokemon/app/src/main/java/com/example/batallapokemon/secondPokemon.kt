@@ -20,7 +20,7 @@ class secondPokemon : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.second_pokemon)
-        firstPokemon = getIntent().getSerializableExtra("atacante") as pokemon?
+        firstPokemon = getIntent().getSerializableExtra("atacante") as pokemon
         btnSquirtle = findViewById(R.id.btnSquirtle2)
         btnInfernape = findViewById(R.id.btnInfernape2)
         btnBulbasur = findViewById(R.id.btnBulbasur2)
@@ -34,31 +34,35 @@ class secondPokemon : AppCompatActivity() {
         }
     }
     fun goToFight(view: View){
-        val intent = Intent(this, fight::class.java).apply{}
-        intent.putExtra("atacante", firstPokemon)
-        intent.putExtra("defensor", secondPokemon)
-        startActivity(intent)
+        if(secondPokemon != null){
+            val intent = Intent(this, fight::class.java).apply{}
+            intent.putExtra("atacante", firstPokemon)
+            intent.putExtra("defensor", secondPokemon)
+            startActivity(intent)
+        }
+        println("No se eligió segundo pokemon")
+        
     }
     fun getSecondPokemon(view:View){
         when(view.id){
             R.id.btnSquirtle2 -> {
                 println("Squirtle")
-                secondPokemon = pokemon("water", 20, 30)
+                secondPokemon = pokemon("water", (1..100).random(),(1..100).random())
                 changeBackCol(btnSquirtle,btnInfernape,btnBulbasur,btnPikachu)
             }
             R.id.btnInfernape2 -> {
                 println("Infernape")
-                secondPokemon = pokemon("fire",50,10)
+                secondPokemon = pokemon("fire",(1..100).random(),(1..100).random())
                 changeBackCol(btnInfernape,btnSquirtle,btnBulbasur,btnPikachu)
             }
             R.id.btnBulbasur2 -> {
                 println("Bulbasur")
-                secondPokemon = pokemon("plant",50,10)
+                secondPokemon = pokemon("plant",(1..100).random(),(1..100).random())
                 changeBackCol(btnBulbasur,btnPikachu,btnInfernape,btnSquirtle)
             }
             R.id.btnPikachu2 -> {
                 println("Pikachu")
-                secondPokemon = pokemon("electric",50,10)
+                secondPokemon = pokemon("electric",(1..100).random(),(1..100).random())
                 changeBackCol(btnPikachu,btnSquirtle,btnBulbasur,btnInfernape)
             }
         }

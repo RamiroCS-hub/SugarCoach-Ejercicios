@@ -29,30 +29,29 @@ open class MainActivity : AppCompatActivity() {
             val intent = Intent(this, secondPokemon::class.java).apply { }
             intent.putExtra("atacante", firstPokemon)
             startActivity(intent)
-        }else{
-            println("No se eligió un pokemon")
         }
+        println("No se eligió un pokemon")
     }
     fun getFirstPokemon(view:View){
         when(view.id){
             R.id.btnSquirtle -> {
                 println("Squirtle")
-                firstPokemon = pokemon("water",20,30)
+                firstPokemon = pokemon("water",(1..100).random(),(1..100).random())
                 changeBackCol(btnSquirtle,btnInfernape,btnBulbasur,btnPikachu)
             }
             R.id.btnInfernape -> {
                 println("Infernape")
-                firstPokemon = pokemon("fire",50,10)
+                firstPokemon = pokemon("fire",(1..100).random(),(1..100).random())
                 changeBackCol(btnInfernape,btnBulbasur,btnPikachu,btnSquirtle)
             }
             R.id.btnBulbasur -> {
                 println("Bulbasur")
-                firstPokemon = pokemon("plant",50,10)
+                firstPokemon = pokemon("plant",(1..100).random(),(1..100).random())
                 changeBackCol(btnBulbasur,btnPikachu,btnInfernape,btnSquirtle)
             }
             R.id.btnPikachu -> {
                 println("Pikachu")
-                firstPokemon = pokemon("electric",50,10)
+                firstPokemon = pokemon("electric",(1..100).random(),(1..100).random())
                 changeBackCol(btnPikachu,btnSquirtle,btnBulbasur,btnInfernape)
             }
         }
