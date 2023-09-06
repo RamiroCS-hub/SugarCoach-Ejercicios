@@ -1,6 +1,6 @@
 package com.example.pokemonhoroscope.main.pokemonManage
 
 data class RestrictedPokemon (
-    val name: String,
+    var name: String,
     val imageUrl: String
 )

@@ -21,10 +21,12 @@ class PokemonViewModel(
         private set
 
     fun CallApi(pokemonName: String){
+        Log.i("PokemonName:", pokemonName)
         viewModelScope.launch {
             state = state.copy(isLoading = true)
             repository.getPokemon(pokemonName).onSuccess {
                 Log.i("OnSucces:", "${it.name}, ${it.imageUrl}")
+                state = state.copy(pokemon = it)
             }.onFailure {
                 Log.i("OnFailure:", it.toString())
             }
