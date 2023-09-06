@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface PokemonApi {
     companion object{
@@ -13,7 +14,7 @@ interface PokemonApi {
             .client(OkHttpClient.Builder().build())
             .build().create(PokemonApi::class.java)
     }
-    @GET("pikachu")
-    suspend fun getPokemon(): PokemonResponse
-    //suspend fun getPokemon(@Path("pokemon") pokemon: String): List<PokemonResponse>
+    @GET("{pokemon}")
+    //suspend fun getPokemon(): PokemonResponse
+    suspend fun getPokemon(@Path("pokemon") pokemon: String): PokemonResponse
 }

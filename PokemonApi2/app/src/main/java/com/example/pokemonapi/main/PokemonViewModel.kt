@@ -14,11 +14,11 @@ class PokemonViewModel(
 ): ViewModel() {
     var state by mutableStateOf(MainState())
         private set
-    init {
+
+    fun callAPI(pokemonName: String){
         viewModelScope.launch{
             state = state.copy( isLoading = true )
-            delay(2000)
-            repository.getPokemon().onSuccess {
+            repository.getPokemon(pokemonName).onSuccess {
                 Log.i("OnSucces:", "${it}")
                 state = state.copy(
                     pokemon = it
