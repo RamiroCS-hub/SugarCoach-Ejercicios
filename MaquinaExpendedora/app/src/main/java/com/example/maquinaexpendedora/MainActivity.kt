@@ -1,26 +1,17 @@
 package com.example.maquinaexpendedora
 
-import android.Manifest
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import java.io.Serializable
 import java.text.DecimalFormat
-import kotlin.math.roundToLong
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -28,12 +19,13 @@ class MainActivity : AppCompatActivity() {
     var txtMoney: EditText? = null
     lateinit var mainScreen: ConstraintLayout
     var userInfo: MutableMap<Double, String> = mutableMapOf<Double, String>()
-    var mapOfDrinks = mapOf<String, Double>(
+    var mapOfDrinks = mutableMapOf<String, Double>(
         "Red Bull" to decimalFormat.format(Random.nextDouble(0.0,10.0)).toDouble(),
         "Coca" to decimalFormat.format(Random.nextDouble(0.0,10.0)).toDouble(),
         "Fanta" to decimalFormat.format(Random.nextDouble(0.0,10.0)).toDouble(),
         "Sprite" to decimalFormat.format(Random.nextDouble(0.0,10.0)).toDouble()
     )
+    var listOfDrinks = mutableListOf<Drink>()
     var money = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +34,15 @@ class MainActivity : AppCompatActivity() {
         mainScreen = findViewById(R.id.mainScreen)
         mapOfDrinks.forEach{
             println("El valor de ${it.key} es: ${it.value}")
+            listOfDrinks.add(Drink(it.key, it.value))
         }
+        setUpRecyclerView(listOfDrinks)
     }
-
+    private fun setUpRecyclerView(drinks: MutableList<Drink>){
+        val recyclerView = findViewById<RecyclerView>(R.id.rvDrinks)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = RecyclerAdapter(drinks)
+    }
     fun calculateMoney (view: View) {
         userInfo[txtMoney?.text.toString().toDouble()] = ""
         //mostrarNotificacion(this, "Se Ingreso Dinero", "Usted Ingreso ${txtMoney?.text.toString()}$", "ngreso_dinero")
@@ -103,6 +101,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showSnack(mesg: String){
-        Snackbar.make(mainScreen!!, mesg, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(mainScreen, mesg, Snackbar.LENGTH_LONG).show()
     }
 }
