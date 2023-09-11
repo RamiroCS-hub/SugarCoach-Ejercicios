@@ -4,16 +4,15 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.maquinaexpendedora.databinding.ItemDrinkBinding
 
 class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-    private val drinkName = view.findViewById<TextView>(R.id.txtName)
-    private val drinkPrice = view.findViewById<TextView>(R.id.txtPrice)
-    private val drinkImg = view.findViewById<ImageView>(R.id.imgDrink)
-
+    val binding = ItemDrinkBinding.bind(view)
     fun bind(drink: Drink){
-        drinkName.text = drink.name
-        drinkPrice.text = "${drink.price}$"
-        when(drink.name){
+        binding.txtName.text = drink.name
+        binding.txtPrice.text = "${drink.price}$"
+        val drinkImg = binding.imgDrink
+        when(binding.txtName.text){
             "Red Bull" -> drinkImg.setImageResource(R.drawable.redbull_can)
             "Coca" -> drinkImg.setImageResource(R.drawable.coke_can)
             "Fanta" -> drinkImg.setImageResource(R.drawable.fanta_can)

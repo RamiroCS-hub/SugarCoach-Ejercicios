@@ -32,7 +32,7 @@ class GetDrink : AppCompatActivity() {
                 else -> Log.i("OnShowImage", "No hay ninguna imagen")
             }
             txtMoney?.setText("Usted compro una ${info.value}. " +
-                    "Su vuelto es: ${decimalFormat.format(info.key)}")
+                    "Su vuelto es: ${decimalFormat.format(info.key)}$")
         }
 
     }
