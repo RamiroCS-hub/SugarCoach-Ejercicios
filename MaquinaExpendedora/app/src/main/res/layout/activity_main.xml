@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/black"
+    android:background="#BCBCBC"
     android:backgroundTintMode="add"
     tools:context=".MainActivity">
 
@@ -15,6 +16,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="100dp"
         android:background="@drawable/cocacola"
+        android:contentDescription="Cocacola"
         android:onClick="chooseDrink"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +29,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="100dp"
         android:background="@drawable/fanta"
+        android:contentDescription="Fanta"
         android:onClick="chooseDrink"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/btnCoke"
@@ -39,6 +42,7 @@
         android:layout_marginStart="80dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/red_bull_logo"
+        android:contentDescription="Red Bull"
         android:onClick="chooseDrink"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,11 +50,12 @@
 
     <ImageButton
         android:id="@+id/btnSpri"
-        android:layout_width="115dp"
-        android:layout_height="75dp"
+        android:layout_width="99dp"
+        android:layout_height="84dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/sprite"
+        android:contentDescription="Sprite"
         android:onClick="chooseDrink"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/btnBull"
@@ -59,12 +64,14 @@
     <EditText
         android:id="@+id/txtMoney"
         android:layout_width="215dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="96dp"
         android:layout_marginBottom="316dp"
+        android:backgroundTint="#00AAFF"
         android:ems="10"
         android:hint="Ingrese el dinero"
         android:inputType="numberDecimal"
+        android:textColorHighlight="#1975D8"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -75,9 +82,33 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="#2A74C3"
         android:onClick="calculateMoney"
         android:text="Ingresar dinero"
+        android:textColorLink="#1975D8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMoney" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="16dp"
+        android:text="Maquina expendedora"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
+        android:text="Ingrese dinero y elija su bebida"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
