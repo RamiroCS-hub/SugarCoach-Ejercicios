@@ -9,10 +9,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -20,10 +24,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.pokemonhoroscope.ui.theme.background
 import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,12 +45,25 @@ fun MainScreen(viewModel: PokemonViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        TextField(value = year,
+        OutlinedTextField(value = year,
             onValueChange = { year = it },
-            label = { Text(text = "Año de nacimiento")  },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
-        //Button(onClick = { viewModel.CallApi(name.lowercase(Locale.getDefault())) }) { Text(text = "Buscar Pokemon") }
-        Button(onClick = { viewModel.getHoroscope(year.toInt()) }) { Text(text = "Saber mi animal del horóscopo") }
+            label = {
+                Text(text = "Año de nacimiento",
+                    color = Color.LightGray) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                containerColor = Color.Gray,
+                textColor = Color.White,
+                cursorColor = Color.Black,
+                focusedBorderColor = Color.White,
+                unfocusedBorderColor = Color.DarkGray
+                )
+        )
+        Button(onClick = { if(year != "") viewModel.getHoroscope(year.toInt()) else viewModel.getHoroscope() },
+        colors = ButtonDefaults.buttonColors(
+            containerColor = Color.Blue,
+            contentColor = Color.LightGray
+        )) { Text(text = "Saber mi animal del horóscopo") }
 
         if (state.isLoading) {
             println("Esta cargando")
@@ -64,7 +84,8 @@ fun MainScreen(viewModel: PokemonViewModel) {
                 println(state.pokemon)
                 Text(
                     text = "Su animal es: ${state.animal.capitalize(Locale.ROOT)}",
-                    fontSize = 30.sp
+                    fontSize = 30.sp,
+                    color = Color.White
                 )
                 AsyncImage(
                     model = state.pokemon[0].imageUrl,
@@ -72,6 +93,11 @@ fun MainScreen(viewModel: PokemonViewModel) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(300.dp)
+                )
+                Text(
+                    text = state.pokemon[0].name.capitalize(Locale.ROOT),
+                    fontSize = 30.sp,
+                    color = Color.White
                 )
             }
         } else if(state.called) {
