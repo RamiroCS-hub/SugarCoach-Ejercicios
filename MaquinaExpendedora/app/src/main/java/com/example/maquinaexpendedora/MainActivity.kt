@@ -8,12 +8,15 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maquinaexpendedora.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import org.w3c.dom.Text
 import java.io.Serializable
+import java.security.Principal
 import java.text.DecimalFormat
 import kotlin.random.Random
 
@@ -33,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         "Sprite" to decimalFormat.format(Random.nextDouble(0.0,10.0)).toDouble()
     )
     private var money = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -102,12 +104,13 @@ class MainActivity : AppCompatActivity() {
             0.0 to ""
         }
     }
-
     private fun changeView() {
-        val intent = Intent(this, GetDrink::class.java).apply{
-            putExtra("sold", userInfo as Serializable)
-        }
-        startActivity(intent)
+        Log.i("OnChangeView", "Se cambio la vista")
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.getDrink,)
+
+        val databundle = Bundle()
+        databundle.putSerializable("sold", userInfo as Serializable)
     }
 
     private fun showSnack(mesg: String){
