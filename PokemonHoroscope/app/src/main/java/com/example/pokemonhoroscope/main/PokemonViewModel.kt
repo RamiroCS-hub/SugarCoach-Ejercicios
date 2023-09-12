@@ -38,9 +38,11 @@ class PokemonViewModel(
         }
     }
 
-    fun getHoroscope(birthYear: Int){
+    fun getHoroscope(birthYear: Int = 0){
         var horoscopeSign = birthYear
+        if(birthYear == 0) state = state.copy(called = true)
 
+        println("El birth year fue: ${birthYear}")
         while(horoscopeSign >= 1912){
             horoscopeSign -= 12
         }

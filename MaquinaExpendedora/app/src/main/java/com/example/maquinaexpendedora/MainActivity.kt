@@ -104,8 +104,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeView() {
-        val intent = Intent(this, GetDrink::class.java).apply{ }
-        intent.putExtra("sold", userInfo as Serializable)
+        val intent = Intent(this, GetDrink::class.java).apply{
+            putExtra("sold", userInfo as Serializable)
+        }
         startActivity(intent)
     }
 
