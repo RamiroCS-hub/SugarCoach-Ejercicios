@@ -20,7 +20,6 @@ class GetDrink : AppCompatActivity() {
         userInfo = getIntent().getSerializableExtra("sold") as MutableMap<Double, String>
         showInfo()
     }
-
     @SuppressLint("SetTextI18n")
     private fun showInfo(){
         for( info in userInfo){
@@ -34,7 +33,6 @@ class GetDrink : AppCompatActivity() {
             txtMoney?.setText("Usted compro una ${info.value}. " +
                     "Su vuelto es: ${decimalFormat.format(info.key)}$")
         }
-
     }
     private fun changeImg(src: Int){
         imgCan?.setImageResource(src)
