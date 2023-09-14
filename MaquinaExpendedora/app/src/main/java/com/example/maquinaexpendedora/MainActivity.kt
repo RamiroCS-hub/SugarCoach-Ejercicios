@@ -106,11 +106,9 @@ class MainActivity : AppCompatActivity() {
     }
     private fun changeView() {
         Log.i("OnChangeView", "Se cambio la vista")
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.getDrink,)
-
-        val databundle = Bundle()
-        databundle.putSerializable("sold", userInfo as Serializable)
+        val intent = Intent(this, GetDrink::class.java).apply {  }
+        intent.putExtra("sold", userInfo as Serializable)
+        startActivity(intent)
     }
 
     private fun showSnack(mesg: String){

@@ -2,28 +2,30 @@ package com.example.maquinaexpendedora
 
 import android.annotation.SuppressLint
 import android.content.Intent.getIntent
-import android.content.Intent.getIntentOld
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.maquinaexpendedora.databinding.ActivityMainBinding
 import com.example.maquinaexpendedora.databinding.GetDrinkBinding
 import java.text.DecimalFormat
-class GetDrink :  Fragment(R.layout.get_drink){
+class GetDrink :  AppCompatActivity() {
 
     private val decimalFormat = DecimalFormat("#.##")
     private lateinit var userInfo: MutableMap<Double, String>
     private lateinit var binding: GetDrinkBinding
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = GetDrinkBinding.bind(view)
-        val dataBundle = arguments
-        val user = dataBundle!!.getSerializable("sold") as MutableMap<Double, String>
-        println(user)
-        //userInfo = getIntentOld("sold")  as MutableMap<Double, String>
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = GetDrinkBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        userInfo = getIntent().getSerializableExtra("sold") as MutableMap<Double, String>
         Log.i("OnIntent", "El intent fue: $userInfo")
-        //showInfo()
+        showInfo()
     }
+
     @SuppressLint("SetTextI18n")
     private fun showInfo(){
         for( info in userInfo){
@@ -42,3 +44,4 @@ class GetDrink :  Fragment(R.layout.get_drink){
         binding.imgCan.setImageResource(src)
     }
 }
+
