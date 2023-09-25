@@ -12,7 +12,7 @@ interface PokemonApi {
             .baseUrl("https://pokeapi.co/api/v2/pokemon/")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(OkHttpClient.Builder().build())
-            .build().create(PokemonApi::class.java)
+            .build().create(PokemonApi::class.java) //Comentario
     }
     @GET("{pokemon}")
     suspend fun getPokemon(@Path("pokemon") pokemon: String): PokemonResponse
